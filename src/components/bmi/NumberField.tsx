@@ -65,7 +65,9 @@ export function NumberField({
           {unit}
         </span>
         <span id={unitId} className="sr-only">
-          {unit === "cm" ? "Enter height in centimeters." : "Enter weight in kilograms."}
+          {unit === "cm"
+            ? "Boyunuzu santimetre cinsinden girin."
+            : "Kilonuzu kilogram cinsinden girin."}
         </span>
       </div>
       <div className="min-h-6 pt-1.5">

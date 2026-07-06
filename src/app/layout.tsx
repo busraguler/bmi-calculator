@@ -3,28 +3,28 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 const siteUrl = "https://bmi-calculator.example.com";
-const title = "BMI Calculator – Calculate Your Body Mass Index";
+const title = "BMI Hesaplama | Uzman Diyetisyen Tuğba Gülay";
 const description =
-  "Calculate your Body Mass Index (BMI) from your height and weight, then see a clear explanation of the general BMI range.";
+  "Uzman Diyetisyen Tuğba Gülay ile boy ve kilo bilgilerinizi kullanarak Vücut Kitle İndeksinizi (BMI) hızlıca hesaplayın.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title,
   description,
   keywords: [
-    "BMI calculator",
-    "body mass index",
-    "healthy weight range",
-    "height and weight calculator",
+    "BMI hesaplama",
+    "vücut kitle indeksi",
+    "Uzman Diyetisyen Tuğba Gülay",
+    "boy kilo hesaplama",
   ],
   alternates: {
     canonical: "/",
   },
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "tr_TR",
     url: "/",
-    siteName: "BMI Calculator",
+    siteName: "Uzman Diyetisyen Tuğba Gülay",
     title,
     description,
   },
@@ -41,7 +41,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="antialiased">
+    <html lang="tr" className="antialiased">
       <body>{children}</body>
     </html>
   );

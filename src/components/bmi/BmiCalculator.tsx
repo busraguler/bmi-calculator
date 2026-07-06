@@ -19,11 +19,11 @@ type FormErrors = Partial<Record<FieldName, string>>;
 const INITIAL_VALUES: FormValues = { height: "", weight: "" };
 
 function validateValue(value: string, label: string): string | undefined {
-  if (!value.trim()) return `${label} is required.`;
+  if (!value.trim()) return `${label} alanı zorunludur.`;
 
   const numericValue = Number(value);
   if (!Number.isFinite(numericValue) || numericValue <= 0) {
-    return `Enter a ${label.toLowerCase()} greater than zero.`;
+    return `${label} için sıfırdan büyük bir değer girin.`;
   }
 
   return undefined;
@@ -42,7 +42,7 @@ export function BmiCalculator() {
     setResult(null);
 
     if (errors[field]) {
-      const label = field === "height" ? "Height" : "Weight";
+      const label = field === "height" ? "Boy" : "Kilo";
       setErrors((current) => ({
         ...current,
         [field]: validateValue(value, label),
@@ -52,7 +52,7 @@ export function BmiCalculator() {
 
   function handleBlur(event: FocusEvent<HTMLInputElement>) {
     const field = event.target.name as FieldName;
-    const label = field === "height" ? "Height" : "Weight";
+    const label = field === "height" ? "Boy" : "Kilo";
     const error = validateValue(event.target.value, label);
 
     setErrors((current) => ({ ...current, [field]: error }));
@@ -62,8 +62,8 @@ export function BmiCalculator() {
     event.preventDefault();
 
     const nextErrors: FormErrors = {
-      height: validateValue(values.height, "Height"),
-      weight: validateValue(values.weight, "Weight"),
+      height: validateValue(values.height, "Boy"),
+      weight: validateValue(values.weight, "Kilo"),
     };
 
     setErrors(nextErrors);
@@ -107,17 +107,19 @@ export function BmiCalculator() {
             </svg>
           </span>
           <div>
-            <h2 className="font-bold text-slate-900">Your measurements</h2>
-            <p className="text-sm text-slate-500">Use your current height and weight</p>
+            <h2 className="font-bold text-slate-900">Ölçüm bilgileriniz</h2>
+            <p className="text-sm text-slate-500">
+              Güncel boy ve kilonuzu girin
+            </p>
           </div>
         </div>
 
         <NumberField
           id="height"
           name="height"
-          label="Height"
+          label="Boy"
           unit="cm"
-          placeholder="e.g. 170"
+          placeholder="örn. 170"
           value={values.height}
           error={errors.height}
           onChange={handleChange}
@@ -126,9 +128,9 @@ export function BmiCalculator() {
         <NumberField
           id="weight"
           name="weight"
-          label="Weight"
+          label="Kilo"
           unit="kg"
-          placeholder="e.g. 65"
+          placeholder="örn. 65"
           value={values.weight}
           error={errors.weight}
           onChange={handleChange}
@@ -139,7 +141,7 @@ export function BmiCalculator() {
           type="submit"
           className="mt-2 flex h-14 w-full items-center justify-center gap-2 rounded-2xl bg-emerald-600 px-6 font-bold text-white shadow-lg shadow-emerald-600/20 transition hover:-translate-y-0.5 hover:bg-emerald-700 hover:shadow-xl hover:shadow-emerald-600/25 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-emerald-200 active:translate-y-0 motion-reduce:transform-none"
         >
-          Calculate BMI
+          BMI Hesapla
           <svg
             aria-hidden="true"
             viewBox="0 0 20 20"
@@ -157,7 +159,14 @@ export function BmiCalculator() {
         </button>
       </form>
 
-      <ResultCard result={result} />
+      <div className="flex flex-col gap-3">
+        <ResultCard result={result} />
+        <p className="px-3 text-center text-xs leading-5 text-slate-500">
+          Bu hesaplama yalnızca bilgilendirme amaçlıdır. Kesin değerlendirme ve
+          kişiye özel beslenme planı için Uzman Diyetisyen desteği almanız
+          önerilir.
+        </p>
+      </div>
     </div>
   );
 }

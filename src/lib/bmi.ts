@@ -16,20 +16,24 @@ const CATEGORY_DETAILS: Record<
   Pick<BmiResult, "label" | "message">
 > = {
   underweight: {
-    label: "Underweight",
-    message: "A little more nourishment may help you reach a healthier range.",
+    label: "Zayıf",
+    message:
+      "Sağlıklı kilo aralığına ulaşmak için dengeli ve yeterli beslenme desteği faydalı olabilir.",
   },
   healthy: {
-    label: "Healthy range",
-    message: "Your BMI is in the generally healthy range. Keep up your balanced habits.",
+    label: "Normal Kilolu",
+    message:
+      "BMI değeriniz normal aralıktadır. Dengeli beslenme ve düzenli hareket alışkanlıklarınızı sürdürün.",
   },
   overweight: {
-    label: "Overweight",
-    message: "Small, consistent changes can support movement toward a healthier range.",
+    label: "Fazla Kilolu",
+    message:
+      "Küçük ve sürdürülebilir yaşam tarzı değişiklikleri sağlıklı aralığa yaklaşmanıza yardımcı olabilir.",
   },
   obesity: {
-    label: "Obesity range",
-    message: "Consider speaking with a healthcare professional for personal guidance.",
+    label: "Obez",
+    message:
+      "Sağlığınızı desteklemek için kişiye özel değerlendirme ve beslenme planı konusunda uzman desteği almanız önerilir.",
   },
 };
 

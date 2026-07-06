@@ -34,7 +34,7 @@ export function ResultCard({ result }: ResultCardProps) {
   if (!result) {
     return (
       <section
-        aria-label="BMI result"
+        aria-label="BMI sonucu"
         aria-live="polite"
         aria-atomic="true"
         className="relative flex min-h-80 flex-col items-center justify-center overflow-hidden rounded-3xl border border-white/80 bg-white/55 p-8 text-center shadow-sm"
@@ -63,10 +63,10 @@ export function ResultCard({ result }: ResultCardProps) {
           </svg>
         </div>
         <h2 className="relative text-xl font-bold text-slate-800">
-          Your result will appear here
+          Sonucunuz burada görünecek
         </h2>
         <p className="relative mt-2 max-w-xs text-sm leading-6 text-slate-500">
-          Enter your height and weight to get your BMI and a simple range guide.
+          BMI değerinizi ve genel aralığınızı görmek için boy ve kilonuzu girin.
         </p>
       </section>
     );
@@ -76,7 +76,7 @@ export function ResultCard({ result }: ResultCardProps) {
 
   return (
     <section
-      aria-label="BMI result"
+      aria-label="BMI sonucu"
       aria-live="polite"
       aria-atomic="true"
       className="relative flex min-h-80 flex-col items-center justify-center overflow-hidden rounded-3xl border border-white/80 bg-white/65 p-8 text-center shadow-sm"
@@ -85,7 +85,7 @@ export function ResultCard({ result }: ResultCardProps) {
         className={`absolute -right-16 -top-16 size-48 rounded-full blur-3xl ${styles.glow}`}
       />
       <h2 className="relative text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
-        Your BMI
+        BMI Değeriniz
       </h2>
       <p
         className={`relative mt-2 text-7xl font-bold tracking-tight ${styles.value}`}
